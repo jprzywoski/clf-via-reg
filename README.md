@@ -1,4 +1,4 @@
-# Regression via Classification for sklearn
+# Classification via Regression for sklearn
 
 Jakub Przywóski
 Sun 26 Dec 06:52:30 GMT 2021
