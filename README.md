@@ -19,13 +19,14 @@ https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeClas
 # Instructions
 
 It is as simple as this:
-	>>> from sklearn.linear_model import BayesianRidge
-	>>> from RegressionClassifier import RegressionClassifier
-	>>> from sklearn.datasets import load_breast_cancer
-	>>> X, y = load_breast_cancer(return_X_y=True)
-	>>> clf = RegressionClassifier(BayesianRidge()).fit(X, y)
-	>>> clf.score(X, y)
-	0.961335676625659
+
+		>>> from sklearn.linear_model import BayesianRidge
+		>>> from RegressionClassifier import RegressionClassifier
+		>>> from sklearn.datasets import load_breast_cancer
+		>>> X, y = load_breast_cancer(return_X_y=True)
+		>>> clf = RegressionClassifier(BayesianRidge()).fit(X, y)
+		>>> clf.score(X, y)
+		0.961335676625659
 
 # Running the benchmark suite
 
