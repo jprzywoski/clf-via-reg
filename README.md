@@ -30,7 +30,7 @@ It is as simple as this:
 
 # Running the benchmark suite
 
-$ ./testRegressionClassifier.py 2>/dev/null
+	$ ./testRegressionClassifier.py 2>/dev/null
 
 	Method                             10-fold CV           Test         Rating
 	LinearDiscriminantAnalysis             97.50%        100.00%         100.00
