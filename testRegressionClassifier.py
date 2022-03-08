@@ -2,12 +2,22 @@
 from functools import partial
 import sklearn
 from sklearn.cross_decomposition import CCA
+from sklearn.cross_decomposition import PLSCanonical
+from sklearn.cross_decomposition import PLSRegression
+from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Ridge
 from sklearn.kernel_ridge import KernelRidge
 from sklearn.linear_model import ARDRegression
 from sklearn.linear_model import ElasticNet
 from sklearn.linear_model import Lasso
 from sklearn.linear_model import Lars
 from sklearn.linear_model import BayesianRidge
+from sklearn.linear_model import HuberRegressor
+from sklearn.linear_model import LassoLarsIC
+from sklearn.linear_model import RANSACRegressor
+from sklearn.linear_model import SGDRegressor
+from sklearn.linear_model import TheilSenRegressor
+from sklearn.linear_model import TweedieRegressor
 from sklearn.datasets import load_iris
 from sklearn.datasets import load_wine
 from sklearn.datasets import load_breast_cancer
@@ -76,8 +86,11 @@ for loader, dataset in data_loaders:
         DummyClassifier(strategy="most_frequent"),
 
         #
-        # Regression
+        # Regression classifiers
         #
+        LinearRegression(),
+        Ridge(),
+        SGDRegressor(),
         ARDRegression(),
         BayesianRidge(),
         KernelRidge(),
@@ -85,6 +98,13 @@ for loader, dataset in data_loaders:
         Lars(),
         Lasso(),
         CCA(),
+        HuberRegressor(),
+        LassoLarsIC(),
+        PLSCanonical(),
+        PLSRegression(),
+        TheilSenRegressor(),
+        TweedieRegressor(),
+        # RANSACRegressor(),
 
         #
         # Proper classifiers
