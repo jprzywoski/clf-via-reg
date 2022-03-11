@@ -76,9 +76,6 @@ class RegressionClassifier:
     def predict(self, X):
         return self._base_estimator.predict(X)
 
-    def predict_proba(self, X):
-        return self._base_estimator.predict_proba(X)
-
     def decision_function(self, X):
         return self._base_estimator.decision_function(X)
 
@@ -100,16 +97,17 @@ class _RegressionClassifier(BaseEstimator, ClassifierMixin):
         self.reg = reg
 
     def fit(self, X, y):
+        y[y == 0] = -1
         self.reg.fit(X, y)
 
     def predict(self, X):
-        return np.rint(np.clip(self.reg.predict(X), 0, 1))
-
-    def predict_proba(self, X):
-        return np.clip(self.reg.predict(X), 0, 1)
+        y_pred = self.reg.predict(X)
+        y_pred[y_pred < 0] = 0
+        y_pred[y_pred >= 0] = 1
+        return y_pred
 
     def decision_function(self, X):
-        return self.reg.predict(X) - 0.5
+        return self.reg.predict(X)
 
     def score(self, X, y):
         return accuracy_score(y, self.predict(X))
