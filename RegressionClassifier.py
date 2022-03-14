@@ -102,8 +102,8 @@ class _RegressionClassifier(BaseEstimator, ClassifierMixin):
 
     def predict(self, X):
         y_pred = self.reg.predict(X)
-        y_pred[y_pred < 0] = 0
-        y_pred[y_pred >= 0] = 1
+        y_pred[y_pred <= 0] = 0
+        y_pred[y_pred > 0] = 1
         return y_pred
 
     def decision_function(self, X):
